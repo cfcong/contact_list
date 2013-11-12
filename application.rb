@@ -4,11 +4,18 @@ class Application
     # Start with an empty array of contacts.
     # TODO: Perhaps stub (seed) some contacts so we don't have to create some every time we restart the app
     @contacts = []
+    @contacts << "Aaron" << "Betrice" << "Cody"
   end
  
   def run
     show_main_menu
     input = gets.chomp
+    if input == "new"
+    elsif input == "list"
+    elsif input == "quit"
+    else
+      show_main_menu
+    end 
   end
   
   # Prints the main menu only
