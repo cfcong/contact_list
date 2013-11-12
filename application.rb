@@ -10,9 +10,11 @@ class Application
   def run
     show_main_menu
     input = gets.chomp
-    if input == "new"
+    if input == "quit"
+      puts "adéu"
+      Kernel.exit
+    elsif input == "new"
     elsif input == "list"
-    elsif input == "quit"
     else
       show_main_menu
     end 
