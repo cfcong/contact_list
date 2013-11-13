@@ -22,6 +22,9 @@ class Application
         @contacts << new_contact
         puts "Your contact card was created."
       elsif input == "list"
+        @contacts.each_with_index do |contact, i| 
+          puts "#{i}: #{contact}"
+        end  
       elsif input == "show"
       else
         puts "I don't understand."

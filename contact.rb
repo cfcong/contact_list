@@ -18,7 +18,7 @@ class Contact
   
   def to_s
     # TODO: return string representation of Contact
-    puts "[i]: #{@first_name} #{@last_name} #{@email}"
+    "#{first_name} #{last_name[0]} (#{email})"
   end
   
 end
