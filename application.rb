@@ -4,19 +4,28 @@ class Application
     # Start with an empty array of contacts.
     # TODO: Perhaps stub (seed) some contacts so we don't have to create some every time we restart the app
     @contacts = []
-    @contacts << "Aaron" << "Betrice" << "Cody"
   end
  
   def run
-    show_main_menu
-    input = gets.chomp
-    if input == "quit"
-      puts "adéu"
-      Kernel.exit
-    elsif input == "new"
-    elsif input == "list"
-    else
+    loop do
       show_main_menu
+      input = gets.chomp
+      if input == "quit"
+        puts "adéu"
+        Kernel.exit
+      elsif input == "new"
+        puts "Please enter your full name"
+        full_name = gets.chomp
+        puts "Please enter your email"
+        email = gets.chomp
+        new_contact = Contact.new(full_name, email)
+        @contacts << new_contact
+        puts "Your contact card was created."
+      elsif input == "list"
+      elsif input == "show"
+      else
+        puts "I don't understand."
+      end
     end 
   end
   

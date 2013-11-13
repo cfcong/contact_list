@@ -6,15 +6,19 @@ class Contact
   
   def initialize(name, email)
     # TODO: assign local variables to instance variables
-    name = gets.chomp
-    email = gets.chomp
-    @name = name
+    name = name.split(' ')
+    @first_name = name[0]
+    @last_name = name[1]
     @email = email
+  end
+
+  def full_name
+  	"#{@first_name} #{@last_name}"
   end
   
   def to_s
     # TODO: return string representation of Contact
-    puts "This contact's name is: #{@name}, and has an email: #{@email} "
+    puts "[i]: #{@first_name} #{@last_name} #{@email}"
   end
   
 end
