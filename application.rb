@@ -1,9 +1,6 @@
 class Application
  
   def initialize
-    # Start with an empty array of contacts.
-    # TODO: Perhaps stub (seed) some contacts so we don't have to create some every time we restart the app
-    @contacts = []
   end
  
   def run
@@ -16,16 +13,29 @@ class Application
       elsif input == "new"
         puts "Please enter your full name"
         full_name = gets.chomp
+        name = full_name.split(' ')
+        first_name = name[0]
+        last_name = name[0]
         puts "Please enter your email"
         email = gets.chomp
-        new_contact = Contact.new(full_name, email)
-        @contacts << new_contact
+        puts "Please enter an importance value between 1 and 5 (1 being most important and 5 being least imporrtant"
+        importance = gets.chomp
+        new_contact = Contact.create(first_name: first_name, last_name: last_name, email: email, importance: importance)
         puts "Your contact card was created."
       elsif input == "list"
-        @contacts.each_with_index do |contact, i| 
-          puts "#{i}: #{contact}"
+        Contact.all.each do |contact, i| 
+          puts "#{id}: #{contact} "
         end  
-      elsif input == "show"
+      elsif input.include?("show")
+      elsif input.include?("delete") 
+        num = input.split(' ')
+        id = num[1]
+        #find on google
+        #merge line 42 and 43.
+        new_contact = Contact.find(id)
+        new_contact.destroy
+      elsif input == "list most important"
+        puts "I have not done it! Sorry, I'll get it done by the EOD"
       else
         puts "I don't understand."
       end
@@ -38,6 +48,8 @@ class Application
     puts " new      - Create a new contact"
     puts " list     - List all contacts"
     puts " show :id - Display contact details"
+    puts " delete :id - Deletes contact"
+    puts " list most important - lists contacts by importance"
     print "> "
   end
  
