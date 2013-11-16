@@ -1,0 +1,16 @@
+<h1>New Contact</h1>
+<form action="/posts" method="post">
+	<label for="contact_name">Title:</label></br />
+	<input id="contact_name" name="contact[name]" type="text" value="<%= @contact.name %>" />
+	<br />
+
+	<label for="contact_email">Email:</label></br />
+	<input id="contact_email" name="contact[email]" type="text" value="<%= @contact.email %>" />
+	<br /
+
+	<label for="contact_importance">Importance: (1 being most important, 5 being least)</label></br />
+	<input id="contact_importance" name="contact[importance]" type="text" value="<%= @contact.importance %>" />
+	<br /
+
+	<input type="submit" value="Create Post" />
+</form> 
