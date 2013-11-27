@@ -24,16 +24,15 @@ class Application
         puts "Your contact card was created."
       elsif input == "list"
         Contact.all.each do |contact, i| 
-          puts "#{id}: #{contact} "
+          puts "#{i}: #{contact} "
         end  
       elsif input.include?("show")
       elsif input.include?("delete") 
         num = input.split(' ')
         id = num[1]
-        #find on google
-        #merge line 42 and 43.
         new_contact = Contact.find(id)
         new_contact.destroy
+        puts "Deleted the contact."
       elsif input == "list most important"
         puts "I have not done it! Sorry, I'll get it done by the EOD"
       else
@@ -47,9 +46,7 @@ class Application
     puts "Welcome to the app. What's next?"
     puts " new      - Create a new contact"
     puts " list     - List all contacts"
-    puts " show :id - Display contact details"
     puts " delete :id - Deletes contact"
-    puts " list most important - lists contacts by importance"
     print "> "
   end
  
